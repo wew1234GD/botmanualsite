@@ -42,9 +42,11 @@
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
             position: relative;
             max-height: 80vh; 
-            overflow-y: scroll; 
+            overflow-y: auto; 
             overflow-x: hidden; 
             -webkit-overflow-scrolling: touch;
+            display: flex;
+            flex-direction: column;
         }
         .container::-webkit-scrollbar {
             display: none; 
@@ -67,6 +69,7 @@
             background: rgba(0, 0, 0, 0.5);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
         }
         .item:hover {
             transform: scale(1.02);
@@ -78,6 +81,20 @@
         .item p {
             margin: 0;
         }
+        .item small {
+            display: block;
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-top: 10px;
+        }
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            color: #b0b0b0;
+            font-size: 14px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -86,30 +103,35 @@
         <h1>Документация по боту</h1>
         <div class="item">
             <p>1. /skibidi | Никаких параметров, просто команда которая пишет "Grappa broski skibidi lewandowski😈😈😈😈😈😈😈😈"</p>
+            <small>Пример: /skibidi</small>
         </div>
         <div class="item">
             <p>2. /speak | Что напишет пользователь то и бот повторит, можно добавить параметр -silent, чтобы сообщение пользователя сразу удалилось.</p>
-            <p>пример: /speak 123 -silent</p>
+            <small>Пример: /speak 123 -silent</small>
+            <small>Пример2: /speak 123</small>
         </div>
         <div class="item">
             <p>3. /go(или /start) | Показывает список команд.</p>
+            <small>Пример: /go</small>
         </div>
         <div class="item">
             <p>4. /pinger | Пингует определёного пользователя, параметров:2, можно максимум от 1-6 раз</p>
-            <p>пример: /pinger @user 5</p>
+            <small>Пример: /pinger @user 6</small>
         </div>
         <div class="item">
             <p>5. /report | параметр:1 отправляет текстовое сообщение с проблемой</p>
-            <p>пример: /report example 123 abc</p>
+            <small>Пример: /report example 123 abc</small>
         </div>
         <div class="item">
             <p>6. /savebeshenstvo | добавлена в шутку, никаких параметров, просто пишет "#savebeshenstvo"</p>
+            <small>Пример: /savebeshenstvo</small>
         </div>
         <div class="item">
             <p>7. /files | файловая система, где можно передвигаться по файловой системе хоста</p>
             <p>создать файл: /files /home/wew1234GD/ServerStorage/ -create:file.txt</p>
             <p>открыть файл: /files /home/wew1234GD/ServerStorage/file.txt</p>
             <p>редактировать файл: пока-что не возможно.</p>
+            <small>Пример: /files /home/wew1234GD/ServerStorage/file -create:file.txt</small>
         </div>
         <div class="item">
             <p>8. /badwords | список плохих слов, бот будет их удалять, параметр(ов):3</p>
@@ -117,12 +139,18 @@
             <p>добавить в список плохив слов: /badwords -add:слово</p>
             <p>удалить из списка плохих слов: /badwords -delete:слово</p>
             <p>!работает только в группах, пользоваться могут только админы и создатель!</p>
+            <small>Пример: /badwords -list</small>
         </div>
         <div class="item">
             <p>9. /donation | Поддержать автора, параметр(ов):0</p>
+            <small>Пример: /Donation</small>
         </div>
         <div class="item">
             <p>10. /cat | Бот скидует фотку с котом, параметр(ов):0</p>
+            <small>Пример: /cat</small>
+        </div>
+        <div class="footer">
+            https://t.me/Zamiikrutoibot
         </div>
     </div>
 </body>
