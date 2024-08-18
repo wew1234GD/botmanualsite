@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Документация о боте
-	</title>
+    <title>Документация о боте</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             height: 100vh;
@@ -35,22 +35,20 @@
             100% { background-position: 100% 100%; }
         }
         .container {
-            max-width: 800px;
             width: 90%;
+            max-width: 800px;
             background: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
             position: relative;
-            max-height: 80vh; 
-            overflow-y: auto; 
-            overflow-x: hidden; 
-            -webkit-overflow-scrolling: touch;
+            height: 80vh;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
         }
         .container::-webkit-scrollbar {
-            display: none; 
+            display: none;
         }
         h1 {
             font-size: 28px;
@@ -63,6 +61,34 @@
         h1:hover {
             text-shadow: 0 0 20px #ffffff;
         }
+        .search-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .search-container input {
+            width: 150px;
+            height: 30px;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #f0f0f0;
+            font-size: 14px;
+            box-shadow: none;
+            text-align: center;
+        }
+        .search-container i {
+            color: #f0f0f0;
+            margin-right: 5px;
+            font-size: 18px;
+        }
         .item {
             margin: 10px 0;
             padding: 15px;
@@ -74,7 +100,7 @@
         }
         .item:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
         }
         .item:nth-child(odd) {
             background: rgba(0, 0, 0, 0.4);
@@ -109,6 +135,10 @@
     <div class="background-pattern"></div>
     <div class="container">
         <h1>Документация по боту</h1>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Поиск...">
+        </div>
         <div class="item">
             <p>1. /skibidi | Никаких параметров, просто команда которая пишет "Grappa broski skibidi lewandowski😈😈😈😈😈😈😈😈"</p>
             <small>Пример: /skibidi</small>
@@ -151,7 +181,7 @@
         </div>
         <div class="item">
             <p>9. /donation | Поддержать автора, параметр(ов):0</p>
-            <small>Пример: /Donation</small>
+            <small>Пример: /donation</small>
         </div>
         <div class="item">
             <p>10. /cat | Бот скидует фотку с котом, параметр(ов):0</p>
@@ -169,5 +199,18 @@
             https://t.me/Zamiikrutoibot
         </div>
     </div>
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const items = document.querySelectorAll('.item');
+
+        searchInput.addEventListener('input', function() {
+            const searchText = searchInput.value.toLowerCase();
+
+            items.forEach(item => {
+                const commandText = item.textContent.toLowerCase();
+                item.style.display = commandText.includes(searchText) ? '' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>
